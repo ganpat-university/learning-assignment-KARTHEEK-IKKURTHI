@@ -1,0 +1,122 @@
+<html>    
+    <head>    
+        <title>Registration Form</title> 
+		
+		<link rel="stylesheet" href="css/style2.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		
+		 
+		</script>		<!-- End Script-->
+	</head>    
+    <body>
+		<div class="login-box">
+		<img src="download.jpg" class="avatar">
+        <h2>Sign Up</h2>
+			
+			<form name = "registrationform"  action="modified1.php" method="POST"onsubmit="return validation()">
+			<p>
+                    <label for="user">First Name:</label>    
+                    <input type = "text" name = "fname" class="form-control" placeholder="Enter Your First Name" id="fname" value = "" required/></p> 
+					<span id="fname" class="text-danger font-weight-bold"> </span>
+					<p>
+                    <label for="user">Last Name:</label>    
+                    <input type = "text" name = "lname" class="form-control" placeholder="Enter Your Last Name" id="lname" value = "" required/></p>
+					<span id="lname" class="text-danger font-weight-bold"> </span>
+					<p>
+                    <label>Email </label>    
+                    <input type = "text" name="email" class="form-control" placeholder="Enter Your Email" id="email" value = "" required/></p>	
+					<span id="email" class="text-danger font-weight-bold"> </span>
+				<p>    
+                    <label>Password:</label>    
+                    <input type = "password" name = "pwd" class="form-control" placeholder="Enter Your Password" id="pwd" value = "" required/></p>
+					<span id="passwords" class="text-danger font-weight-bold"> </span>
+				<p> 
+					<label>Cornfirm Password:</label> 
+                    <input type = "password" name = "pwd"  class="form-control" placeholder="Confirm Your Password" id="pwd" value = "" required/> </p>
+					<span id="confrmpass" class="text-danger font-weight-bold"> </span>
+				
+                       
+				<p>
+				<input type="submit" name="submit" value="Signup">
+        </div>    
+        </form>
+		
+		
+		
+		
+			<script type="text/javascript">
+		
+
+		function validation(){
+
+			var user = document.getElementById('user').value;
+			var emails = document.getElementById('emails').value;
+			var pass = document.getElementById('pass').value;
+			var confirmpass = document.getElementById('conpass').value;
+			
+
+
+
+
+			if(user == ""){
+				document.getElementById('username').innerHTML =" ** Please fill the username field";
+				return false;
+			}
+			if((user.length <= 2) || (user.length > 20)) {
+				document.getElementById('username').innerHTML =" ** Username lenght must be between 2 and 20";
+				return false;	
+			}
+			if(!isNaN(user)){
+				document.getElementById('username').innerHTML =" ** only characters are allowed";
+				return false;
+			}
+
+
+			if(emails == ""){
+				document.getElementById('emailids').innerHTML =" ** Please fill the email idx` field";
+				return false;
+			}
+			if(emails.indexOf('@') <= 0 ){
+				document.getElementById('emailids').innerHTML =" ** @ Invalid Position";
+				return false;
+			}
+
+			if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+				document.getElementById('emailids').innerHTML =" ** . Invalid Position";
+				return false;
+			}
+
+
+
+
+			if(pass == ""){
+				document.getElementById('passwords').innerHTML =" ** Please fill the password field";
+				return false;
+			}
+			if((pass.length <= 5) || (pass.length > 20)) {
+				document.getElementById('passwords').innerHTML =" ** Passwords lenght must be between  5 and 20";
+				return false;	
+			}
+
+
+			if(pass!=confirmpass){
+				document.getElementById('confrmpass').innerHTML =" ** Password does not match the confirm password";
+				return false;
+			}
+
+
+
+			if(confirmpass == ""){
+				document.getElementById('confrmpass').innerHTML =" ** Please fill the confirmpassword field";
+				return false;
+			}
+
+			
+		}
+
+	</script>
+				
+    </body>    
+</html>    
